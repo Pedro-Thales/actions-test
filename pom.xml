@@ -1,0 +1,35 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bastos</groupId>
+    <artifactId>actions-project</artifactId>
+    <version>1.0.0</version>
+    <name>Test project</name>
+    <!-- can be removed -->
+    <packaging>war</packaging>
+
+    <properties>
+        <java.version>11</java.version>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--suppress UnresolvedMavenProperty -->
+        <docker.repo.url>${DOCKER_REPO_URL}</docker.repo.url>
+        <docker.image.name>${docker.repo.url}/account-statement-integration-service</docker.image.name>
+        <jib.to.image>${docker.image.name}:${project.version}</jib.to.image>
+
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    
+</project>
