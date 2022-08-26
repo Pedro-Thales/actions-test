@@ -1,0 +1,33 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Start Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'The version you want to release.'
+        required: true
+
+jobs:
+  draft-new-release:
+    name: "Initialize repo to git-flow"
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+    steps:
+      - uses: actions/checkout@v2
+
+      # In order to make a commit, we need to initialize a user.
+      # You may choose to write something less generic here if you want, it doesn't matter functionality wise.
+      - name: Initialize mandatory git config
+        run: |
+          git config user.name "GitHub actions"
+          git config user.email noreply@github.com
+          git flow init -d
+          git flow release start ${{ github.event.inputs.version }}
+
+      - name: Bump pom.xml
+        id: bump-pom
+        shell: bash
+        run: |
+          mvn build-helper:parse-version versions:set -DnewVersion=${{ github.event.inputs.version }} versions:commit -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
