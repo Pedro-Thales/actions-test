@@ -19,7 +19,7 @@ outputs:
     description: "build version"
     value: ${{ steps.build-version.outputs.version }}
   develop-release-version:
-    description: "main version in develop branch"
+    description: "master version in develop branch"
     value: ${{ steps.develop-version.outputs.release }}
   develop-metadata-version:
     description: "metadata in develop branch"
