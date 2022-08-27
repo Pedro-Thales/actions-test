@@ -5,20 +5,13 @@
 
     <groupId>com.bastos</groupId>
     <artifactId>actions-project</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <name>Test project</name>
-    <!-- can be removed -->
-    <packaging>war</packaging>
 
     <properties>
         <java.version>11</java.version>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!--suppress UnresolvedMavenProperty -->
-        <docker.repo.url>${DOCKER_REPO_URL}</docker.repo.url>
-        <docker.image.name>${docker.repo.url}/account-statement-integration-service</docker.image.name>
-        <jib.to.image>${docker.image.name}:${project.version}</jib.to.image>
-
     </properties>
 
     
