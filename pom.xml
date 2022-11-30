@@ -5,7 +5,7 @@
 
     <groupId>com.bastos</groupId>
     <artifactId>actions-project</artifactId>
-    <version>1.2.0-SNAPSHOT-2</version>
+    <version>1.2.0-SNAPSHOT-3</version>
     <name>Test project</name>
 
     <properties>
